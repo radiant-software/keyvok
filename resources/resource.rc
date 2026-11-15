@@ -1,0 +1,37 @@
+// The small resource headers, not winuser.h and winver.h: those pull in
+// SDK headers whose #include names differ in case from the files, which
+// clang's preprocessor warns about.
+#include <winuser.rh> // RT_MANIFEST
+#include <verrsrc.h>  // VERSIONINFO constants
+
+#include "version.h"
+
+1 RT_MANIFEST "app.manifest"
+
+2 ICON "icon.ico"
+
+VS_VERSION_INFO VERSIONINFO
+FILEVERSION KEYVOK_VERSION_MAJOR,KEYVOK_VERSION_MINOR,KEYVOK_VERSION_PATCH,0
+PRODUCTVERSION KEYVOK_VERSION_MAJOR,KEYVOK_VERSION_MINOR,KEYVOK_VERSION_PATCH,0
+FILEFLAGSMASK VS_FFI_FILEFLAGSMASK
+FILEFLAGS 0x0L
+FILEOS VOS__WINDOWS32
+FILETYPE VFT_APP
+FILESUBTYPE VFT2_UNKNOWN
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "CompanyName", KEYVOK_COMPANY
+            VALUE "LegalCopyright", "Copyright \251 " KEYVOK_COPYRIGHT_YEAR " " KEYVOK_COMPANY
+            VALUE "FileDescription", "Keyvok"
+            VALUE "ProductName", "Keyvok"
+            VALUE "ProductVersion", KEYVOK_VERSION_STRING
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END

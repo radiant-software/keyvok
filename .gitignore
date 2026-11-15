@@ -1,0 +1,12 @@
+/build/
+/tools/
+
+# Database files: local copies may hold real, DPAPI-encrypted passwords,
+# which must never be committed.
+*.db
+*.db-wal
+*.db-shm
+*.db.tmp
+
+# clangd config with this machine's paths; used by Claude Code, not the build.
+.clangd
